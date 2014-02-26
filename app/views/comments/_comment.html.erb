@@ -1,0 +1,7 @@
+    <small>
+      <% if can? :destroy, comment %>
+        | <%= link_to "Delete", [@topic, @post, comment], method: :delete %>
+      <% end %>
+    </small>
+    <p><%= comment.body %></p>
+
