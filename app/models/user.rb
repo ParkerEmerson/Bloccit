@@ -11,6 +11,7 @@ class User < ActiveRecord::Base
   # attr_accessible :title, :body
   has_many :posts
   has_many :comments
+  has_many :votes, dependent: :destroy
 
   before_create :set_member
 
@@ -24,7 +25,8 @@ def self.find_for_facebook_oauth(auth, signed_in_resource=nil)
                          uid: auth.uid,
                          email: auth.info.email,
                          password: pass,
-                         password_confirmation: pass
+                         password_confirmation: pass, 
+                         ##avatar: auth.info.image
                         )
       user.skip_confirmation!
       user.save
