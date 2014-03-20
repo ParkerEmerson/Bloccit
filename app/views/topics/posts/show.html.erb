@@ -30,13 +30,15 @@
 
 
     <h2 class='js-comments-count'><%= @comments.count %> Comments</h2>
+    <div class="js-comments"> 
 <%= render partial: "comments/comment", collection: @post.comments %>
+  </div>
     
 
     <% if can? :create, Comment %>
 
       <hr/>
-      " class="js-show-hide" data-selector="js-new-comment">Add Comment</a>
+      <a href="#" class="js-show-hide" data-selector="js-new-comment">Add Comment</a>
       <br/>
       <div class="js-new-comment hide">
       <h4>New Comment</h4>
